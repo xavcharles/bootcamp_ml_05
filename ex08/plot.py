@@ -39,23 +39,6 @@ def predict_(x, theta):
     y = add_intercept(x)
     return np.dot(y, theta)
 
-# def loss_elem_(y, y_hat):
-#     """
-#     Description:
-#     Calculates all the elements (y_pred - y)^2 of the loss function.
-#     Args:
-#     y: has to be an numpy.array, a two-dimensional array of shape m * 1.
-#     y_hat: has to be an numpy.array, a two-dimensional array of shape m * 1.
-#     Returns:
-#     J_elem: numpy.array, a array of dimension (number of the training examples, 1).
-#     None if there is a dimension matching problem.
-#     None if any argument is not of the expected type.
-#     Raises:
-#     This function should not raise any Exception.
-#     """
-#     J_elem = np.array([pow(y_hat[i] - y[i], 2) for i in range(y.shape[0])])
-#     return J_elem
-
 def loss_(y, y_hat):
     """Computes the half mean squared error of two non-empty numpy.array, without any for loop.
     The two arrays must have the same dimensions.
@@ -83,6 +66,7 @@ def plot_with_loss(x, y, theta):
     This function should not raise any Exception.
     """
     y_hat = predict_(x, theta)
+    print(y_hat)
     plt.plot(x, y, label="points only", color='blue', linestyle="None", marker="o", markersize=4)
     plt.plot(x, y_hat, label="prediction line", color='orange', linewidth=1, linestyle='-', marker='None')
     plt.vlines(x=x, ymin=y, ymax=y_hat, color='red', linewidth=2, linestyle='--', label='Vertical Line')
